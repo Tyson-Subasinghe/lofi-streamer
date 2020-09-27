@@ -43,16 +43,23 @@ const Styles = styled.div`
 
 export const Home = () => {
 
+    
     return(
 
         <Styles>
             <div className="pageBox">
                 <div className="title">Lofio</div>
                 
-                <div> Choose a station!
+                <div> 
+                    
+                Choose a station!
+
                 <LofiPlayer/> 
+
                 Add some ambience!
+                
                 <RainPlayer/> 
+
                 </div>
                 
                 
