@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {isMobile} from "react-device-detect";
 import face from '../assets/Face.png';
 
 const Styles = styled.div`
@@ -16,16 +15,6 @@ const Styles = styled.div`
     flex-wrap: wrap;
 }
 
-
-.componentBox{
-   
-       
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-
-}
 
 .face{
     position: relative;
@@ -43,7 +32,7 @@ export const NoMatch = () => {
     <Styles>
         <div className="pageBox"> 
             
-                    <img className="face" src={face} />
+                    <img className="face" src={face} alt="404"/>
       
         </div>
     </Styles>

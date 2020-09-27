@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {motion} from 'framer-motion';
 import {isMobile} from "react-device-detect";
 import {LofiPlayer} from '../components/lofiPlayer.js';
 import {AmbiencePlayer} from '../components/ambiencePlayer.js';
@@ -70,7 +69,7 @@ export const Home = () => {
                 
                 
                 <div className="componentBox"> 
-                <img src={Logo} className="logo"/>
+                <img src={Logo} className="logo" alt="Lofio"/>
                 <div className="largeBreak"></div>
                 <LofiPlayer/> 
                 <div className="largeBreak"></div>
