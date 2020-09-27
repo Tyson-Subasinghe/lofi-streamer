@@ -1,6 +1,6 @@
 body {
     animation-name: change-background;
-    animation-duration: 120s;
+    animation-duration: 180s;
     animation-iteration-count: infinite;
   }
   
@@ -28,17 +28,17 @@ body {
     40% {
       background-color: #a3dedd;
     }
-    50% {
+    55% {
       background-color: #b499c2;
     }
-    55% {
+    60% {
       background-color:  #b499c2;
     }
     75% {
-      background-color: #d3653e;
+      background-color: #FF9A6F;
     }
     80% {
-      background-color: #d3653e;
+      background-color: #FF9A6F;
     }
     100% {
       background-color: #f3dbb6;

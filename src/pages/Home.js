@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {isMobile} from "react-device-detect";
-
+import {LofiPlayer} from '../components/lofiPlayer.js';
+import {RainPlayer} from '../components/rainPlayer.js';
 
 const Styles = styled.div`
 
@@ -41,17 +42,20 @@ const Styles = styled.div`
 
 
 export const Home = () => {
-    
+
     return(
 
         <Styles>
             <div className="pageBox">
-                <div className="title">Lofi Streamer</div>
-                <div> Step 1 is to get the background changing colour DONE</div>
-                <div> step 2 is to get the music streamer working</div>
-                <div> step 3 is to add white noise, rain and thunder on top</div>
-                <div> step 4 is to design buttons and make it sexy </div>
-
+                <div className="title">Lofio</div>
+                
+                <div> Choose a station!
+                <LofiPlayer/> 
+                Add some ambience!
+                <RainPlayer/> 
+                </div>
+                
+                
             </div>           
         </Styles>
   
