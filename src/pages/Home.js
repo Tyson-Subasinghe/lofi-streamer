@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {isMobile} from "react-device-detect";
 import {LofiPlayer} from '../components/lofiPlayer.js';
-import {RainPlayer} from '../components/rainPlayer.js';
+import {AmbiencePlayer} from '../components/ambiencePlayer.js';
+import Logo from '../assets/Logo.png';
 
 const Styles = styled.div`
 
@@ -14,28 +15,30 @@ const Styles = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-wrap: wrap;
 }
 
 
-.title{
-    position: absolute;
-    z-index: 2;
+.logo{
+    position: relative;
+    z-index: -2;
     ${isMobile ? 
       `    
-      font-size: calc(8vh);
-      top: 10%;
+      width: 40%;
+      top: 5%;
       
       `
       :
       `
-      font-size: calc(6vw);
-      top: 10%;
+      width: 15%;
+      top: 5%;
       `
     }
     font-weight: bold;
     justify-content: center;
     align-items: center;
     display: inline-block;
+    mouseEvents: none;
   }
 
 .componentBox{
@@ -48,10 +51,7 @@ const Styles = styled.div`
     
 }
 
-.textBreak {
-    flex-basis: 100%;
-    height: 2vh;
-}
+
 
 .largeBreak {
     flex-basis: 100%;
@@ -67,19 +67,14 @@ export const Home = () => {
 
         <Styles>
             <div className="pageBox">
-                <div className="title">Lofio</div>
+                
                 
                 <div className="componentBox"> 
-                    
-                Choose a station!
-                <div className="textBreak"></div>
-                <LofiPlayer/> 
-
+                <img src={Logo} className="logo"/>
                 <div className="largeBreak"></div>
-                Add some ambience!
-                <div className="textBreak"></div>
-                <RainPlayer/> 
-
+                <LofiPlayer/> 
+                <div className="largeBreak"></div>
+                <AmbiencePlayer/> 
                 </div>
                 
                 

@@ -28,8 +28,7 @@ const Styles = styled.div`
 }
 
 .loadingMessage{
-    position: absolute;
-    top: 80%;
+    position: relative;
     justify-content: center;
     align-items: center;
 }
@@ -64,6 +63,11 @@ const Styles = styled.div`
     flex-basis: 100%;
     height: 0;
   }
+
+  .textBreak {
+    flex-basis: 100%;
+    height: 2vh;
+}
   
 `;
 
@@ -104,8 +108,8 @@ export const LofiPlayer = () => {
             <div className="box">
                 <ReactPlayer url={currentURL} width= '0px' height='0px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
                 
-                {loadingState ?  <div className="loadingMessage">Loading</div> : ""}
-
+                {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
+                <div className="textBreak"></div>
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=5qap5aO4i9A&afmt=55")}><img src={ChilledCow} alt="ChilledCow" className="buttonIcon"/> </IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=5yx6BWlEVcY&afmt=55")}> <img src={Chillhop} alt="Chillhop" className="buttonIcon"/></IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=OVPPOwMpSpQ&afmt=55")}> <img src={JazzHopCafe} alt="JazzHopCafe" className="buttonIcon"/></IconButton>

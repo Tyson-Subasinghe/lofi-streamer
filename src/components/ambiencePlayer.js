@@ -28,8 +28,7 @@ const Styles = styled.div`
 }
 
 .loadingMessage{
-    position: absolute;
-    top: calc(80% + 2em);
+    position: relative;
     justify-content: center;
     align-items: center;
 }
@@ -64,10 +63,15 @@ const Styles = styled.div`
     flex-basis: 100%;
     height: 0;
   }
+
+  .textBreak {
+    flex-basis: 100%;
+    height: 2vh;
+}
 `;
 
 
-export const RainPlayer = () => {
+export const AmbiencePlayer = () => {
     
    
     const [playing, setPlaying] = useState(false);
@@ -102,8 +106,8 @@ export const RainPlayer = () => {
             <div className="box">
                 <ReactPlayer url={currentURL} width= '0px' height='0px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
                 
-                {loadingState ?  <div className="loadingMessage">Loading</div> : ""}
-
+                {loadingState ?  <div className="loadingMessage">Loading</div> : "Add some ambience"}
+                <div className="textBreak"></div>
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=qPNvMeP8mQI&afmt=55")}><img src={LightRain} alt="Light rain" className="buttonIcon"/> </IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=HmH4W8JOifg&afmt=55")}> <img src={Storm} alt="Storm" className="buttonIcon"/></IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=NiqM3lVirkw&afmt=55")}> <img src={Fire} alt="Fire" className="buttonIcon"/></IconButton>
