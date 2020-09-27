@@ -5,9 +5,13 @@ import ReactPlayer from 'react-player/youtube';
 import IconButton from '@material-ui/core/IconButton';
 import Slider from '@material-ui/core/Slider';
 import LightRain from "../assets/LightRain.png";
-import HeavyRain from "../assets/HeavyRain.png";
-import Storm from "../assets/Storm.png";
 
+import Storm from "../assets/Storm.png";
+import Fire from "../assets/Fire.png";
+import Waves from '../assets/Waves.png';
+import Forest from "../assets/Forest.png";
+import Cafe from "../assets/Cafe.png";
+import {isMobile} from "react-device-detect";
 
 const Styles = styled.div`
 
@@ -101,8 +105,12 @@ export const RainPlayer = () => {
                 {loadingState ?  <div className="loadingMessage">Loading</div> : ""}
 
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=qPNvMeP8mQI&afmt=55")}><img src={LightRain} alt="Light rain" className="buttonIcon"/> </IconButton>
-                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=jX6kn9_U8qk&t=8843s&afmt=55")}> <img src={HeavyRain} alt="Heavy rain" className="buttonIcon"/></IconButton>
-                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=HmH4W8JOifg&t=3408s&afmt=55")}> <img src={Storm} alt="Storm" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=HmH4W8JOifg&afmt=55")}> <img src={Storm} alt="Storm" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=NiqM3lVirkw&afmt=55")}> <img src={Fire} alt="Fire" className="buttonIcon"/></IconButton>
+                {isMobile ? <div className="break"></div> : <></>}
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=Nep1qytq9JM&afmt=55")}> <img src={Waves} alt="Waves" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=OdIJ2x3nxzQ&afmt=55")}> <img src={Forest} alt="Forest" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=gaGrHUekGrc&afmt=55")}> <img src={Cafe} alt="Cafe" className="buttonIcon"/></IconButton>
                 <div className="break"></div>
                 <Slider className="slider" min={0} max={1} step={0.001} value={volume} onChange={handleSliderChange} aria-labelledby="volume" />
             </div>

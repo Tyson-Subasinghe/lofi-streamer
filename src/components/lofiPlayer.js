@@ -7,7 +7,10 @@ import Slider from '@material-ui/core/Slider';
 import ChilledCow from "../assets/ChilledCow.png";
 import Chillhop from "../assets/Chillhop.png";
 import JazzHopCafe from "../assets/JazzHopCafe.png";
-
+import BootlegBoy from "../assets/BootlegBoy.png";
+import Chillhop2 from "../assets/Chillhop2.png";
+import SteezyAF from "../assets/SteezyAF.png";
+import {isMobile} from "react-device-detect";
 
 
 const Styles = styled.div`
@@ -106,6 +109,10 @@ export const LofiPlayer = () => {
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=5qap5aO4i9A&afmt=55")}><img src={ChilledCow} alt="ChilledCow" className="buttonIcon"/> </IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=5yx6BWlEVcY&afmt=55")}> <img src={Chillhop} alt="Chillhop" className="buttonIcon"/></IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=OVPPOwMpSpQ&afmt=55")}> <img src={JazzHopCafe} alt="JazzHopCafe" className="buttonIcon"/></IconButton>
+                {isMobile ? <div className="break"></div> : <></>}
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=7NOSDKb0HlU&afmt=55")}> <img src={Chillhop2} alt="Chillhop" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=l7TxwBhtTUY&afmt=55")}> <img src={BootlegBoy} alt="BootlegBoy" className="buttonIcon"/></IconButton>
+                <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=9_CcYN8MVO8&afmt=55")}> <img src={SteezyAF} alt="SteezyAF" className="buttonIcon"/></IconButton>
                 <div className="break"></div>
                 <Slider className="slider" min={0} max={1} step={0.001} value={volume} onChange={handleSliderChange} aria-labelledby="volume" />
             </div>
