@@ -3,9 +3,11 @@ import {useState} from 'react';
 import styled from 'styled-components';
 import ReactPlayer from 'react-player/youtube';
 import IconButton from '@material-ui/core/IconButton';
+import Slider from '@material-ui/core/Slider';
 import ChilledCow from "../assets/ChilledCow.png";
 import Chillhop from "../assets/Chillhop.png";
 import JazzHopCafe from "../assets/JazzHopCafe.png";
+
 
 
 const Styles = styled.div`
@@ -14,6 +16,7 @@ const Styles = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     
 }
 .buttonIcon{
@@ -50,6 +53,15 @@ const Styles = styled.div`
     }
   }
 
+  .slider{
+    width: 30vh;
+  }
+
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+  
 `;
 
 
@@ -59,6 +71,12 @@ export const LofiPlayer = () => {
     const [playing, setPlaying] = useState(false);
     const [currentURL,setCurrentURL] = useState(false);
     const [loadingState,setLoadingState] = useState(false);
+    const [volume, setVolume] = useState(0.5);
+    
+
+    const handleSliderChange = (event, newVolume) => {
+        setVolume(newVolume);
+    };
 
     function handleNewStream(newURL) {
        
@@ -81,14 +99,15 @@ export const LofiPlayer = () => {
     return(
         <Styles>
             <div className="box">
-                <ReactPlayer url={currentURL} width= '0px' height='0px' playing={playing}  onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
+                <ReactPlayer url={currentURL} width= '0px' height='0px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
                 
                 {loadingState ?  <div className="loadingMessage">Loading</div> : ""}
 
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=5qap5aO4i9A&afmt=55")}><img src={ChilledCow} alt="ChilledCow" className="buttonIcon"/> </IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=5yx6BWlEVcY&afmt=55")}> <img src={Chillhop} alt="Chillhop" className="buttonIcon"/></IconButton>
                 <IconButton onClick={()=> handleNewStream("https://www.youtube.com/watch?v=OVPPOwMpSpQ&afmt=55")}> <img src={JazzHopCafe} alt="JazzHopCafe" className="buttonIcon"/></IconButton>
-
+                <div className="break"></div>
+                <Slider className="slider" min={0} max={1} step={0.001} value={volume} onChange={handleSliderChange} aria-labelledby="volume" />
             </div>
         </Styles>
   

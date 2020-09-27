@@ -11,3 +11,17 @@ body {
   font-family: 'CeraRoundPro';
   src: local('CeraRoundPro'), url(./fonts/CeraRoundProRegular.otf) format('opentype');
 }
+
+
+::selection {
+  background-color: #f3dbb6;
+  color: #ffffff;
+  }
+
+::-moz-selection {
+  background-color:#f3dbb6;
+  color: #ffffff;
+  }
+
+
+

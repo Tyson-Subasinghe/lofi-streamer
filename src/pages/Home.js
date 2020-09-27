@@ -22,13 +22,13 @@ const Styles = styled.div`
     z-index: 2;
     ${isMobile ? 
       `    
-      font-size: calc(6vh);
-      top: 0;
+      font-size: calc(8vh);
+      top: 10%;
       
       `
       :
       `
-      font-size: calc(4vw);
+      font-size: calc(6vw);
       top: 10%;
       `
     }
@@ -38,6 +38,25 @@ const Styles = styled.div`
     display: inline-block;
   }
 
+.componentBox{
+   
+       
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+    
+}
+
+.textBreak {
+    flex-basis: 100%;
+    height: 2vh;
+}
+
+.largeBreak {
+    flex-basis: 100%;
+    height: 6vh;
+}
 `;
 
 
@@ -50,14 +69,15 @@ export const Home = () => {
             <div className="pageBox">
                 <div className="title">Lofio</div>
                 
-                <div> 
+                <div className="componentBox"> 
                     
                 Choose a station!
-
+                <div className="textBreak"></div>
                 <LofiPlayer/> 
 
+                <div className="largeBreak"></div>
                 Add some ambience!
-                
+                <div className="textBreak"></div>
                 <RainPlayer/> 
 
                 </div>
