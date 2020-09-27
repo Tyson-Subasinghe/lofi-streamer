@@ -1,0 +1,48 @@
+body {
+    animation-name: change-background;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+  }
+  
+  
+  
+  @keyframes change-background {
+    0% {
+      background-color: #f3dbb6;
+    }
+    5% {
+      background-color:#f3dbb6;
+    }
+    20% {
+      background-color:#9adbb5;
+    }
+    25% {
+      background-color: #9adbb5;
+    }
+    30% {
+      background-color: #9adbb5;
+    }
+    35% {
+      background-color: #a3dedd;
+    }
+    40% {
+      background-color: #a3dedd;
+    }
+    50% {
+      background-color: #b499c2;
+    }
+    55% {
+      background-color:  #b499c2;
+    }
+    75% {
+      background-color: #d3653e;
+    }
+    80% {
+      background-color: #d3653e;
+    }
+    100% {
+      background-color: #f3dbb6;
+    }
+    
+  }
+  
