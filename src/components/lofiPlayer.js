@@ -94,7 +94,8 @@ export const LofiPlayer = () => {
             setCurrentURL(newURL);
             alert(appleDelayState);
             alert("loading is" + loadingState);
-            if(appleDelayState==false){
+            if(appleDelayState===false){
+                setAppleDelayState(false);
                 alert("Not yet triggered ?maybe? loading");
                 
 
