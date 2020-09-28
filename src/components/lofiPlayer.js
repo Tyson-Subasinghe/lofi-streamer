@@ -86,11 +86,18 @@ export const LofiPlayer = () => {
         setVolume(newVolume);
     };
 
-    const handleForceStart = () => {
-        alert("Start, playing is "+playing+" and forcestart is "+forceStart);
+    const handleDoublePass = () => {
+        setLoadingState(true);
         setPlaying(true);
-        setForceStart(true);
-        alert("End, playing is "+playing+" and forcestart is "+forceStart);
+        
+    }
+
+    const handleForceStart = () => {
+        
+        if(loadingState===true || playing===false){
+            setPlaying(true);
+        }
+       
     }
 
     function handleNewStream(newURL) {
@@ -101,9 +108,11 @@ export const LofiPlayer = () => {
             
         }else if(currentURL === false){
             setLoadingState(true);
-            setPlaying(!playing);
+            setPlaying(true);
             setCurrentURL(newURL);
-
+            handleDoublePass();
+            alert("double pass is done! we know that playing and loading state are "+playing+" and "+loadingState);
+            handleForceStart();
         }else{
             setCurrentURL(newURL);
             setPlaying(true);
