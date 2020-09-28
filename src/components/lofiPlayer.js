@@ -90,8 +90,8 @@ export const LofiPlayer = () => {
        
         if(currentURL === false){
             setLoadingState(true);
-            setPlaying(true);
             setCurrentURL(newURL);
+            setPlaying(true);
             
         }else if (newURL === currentURL){
             setPlaying(!playing);
@@ -116,12 +116,7 @@ export const LofiPlayer = () => {
                 onPause={()=>setLoadingState(false)} 
                 onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} 
                 onUnstarted={()=>{alert("Unstarted"); setPlaying(true)}}
-                config={{
-                    youtube: {
-                        onUnstarted: '{()=>{alert("Unstarted"); setPlaying(true)}}'
-                    },
-                    
-                  }}/>
+                />
                 {loadingState}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
