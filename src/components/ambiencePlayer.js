@@ -104,7 +104,7 @@ export const AmbiencePlayer = () => {
     return(
         <Styles>
             <div className="box">
-                <ReactPlayer url={currentURL} width= '0px' height='0px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
+                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
                 
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Add some ambience"}
                 <div className="textBreak"></div>
