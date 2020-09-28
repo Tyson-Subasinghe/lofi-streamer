@@ -79,7 +79,7 @@ export const LofiPlayer = () => {
     const [currentURL,setCurrentURL] = useState(false);
     const [loadingState,setLoadingState] = useState(false);
     const [volume, setVolume] = useState(0.5);
-    const [iosPlayState, setIosPlayState] = useState(false);
+    const [appleDelayState, setAppleDelayState] = useState(false);
     
 
     const handleSliderChange = (event, newVolume) => {
@@ -90,12 +90,14 @@ export const LofiPlayer = () => {
        
         if(currentURL === false){
             setLoadingState(true);
-            setPlaying(!playing);
+            setPlaying(true);
             setCurrentURL(newURL);
-            if(iosPlayState===false){
-                alert("Initial playing");
-                setIosPlayState(true);
-                setPlaying(true);
+            alert(appleDelayState);
+            alert("loading is" + loadingState);
+            if(appleDelayState==false){
+                alert("Not yet triggered ?maybe? loading");
+                
+
             }
             
         }else if (newURL === currentURL){
@@ -111,8 +113,8 @@ export const LofiPlayer = () => {
     return(
         <Styles>
             <div className="box">
-                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)}/>
-                
+                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)} onReady={()=>{setPlaying(true)}}/>
+                {loadingState}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=5qap5aO4i9A&afmt=55")}><img src={ChilledCow} alt="ChilledCow" className="buttonIcon"/> </IconButton>
