@@ -106,6 +106,7 @@ export const LofiPlayer = () => {
         <Styles>
             <div className="box">
                 <ReactPlayer 
+                autoplay
                 url={currentURL} 
                 width= '500px' 
                 height='500px' 
@@ -114,9 +115,12 @@ export const LofiPlayer = () => {
                 onPlay={()=>{setLoadingState(false)}} 
                 onPause={()=>setLoadingState(false)} 
                 onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} 
+                onUnstarted = {()=>alert("UNSTARTED")}
                 
                 />
-                {loadingState}
+                <button style={{height: "50px", width: "50px"}}
+                onClick={()=>setPlaying(true)}/>
+                {playing ? "Playing is TRUE" : "Playing is FALSE"}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
                 <IconButton onClick={()=>handleNewStream("https://www.youtube.com/watch?v=5qap5aO4i9A&afmt=55?autoplay=1")}><img src={ChilledCow} alt="ChilledCow" className="buttonIcon"/> </IconButton>
