@@ -79,7 +79,7 @@ export const LofiPlayer = () => {
     const [currentURL,setCurrentURL] = useState(false);
     const [loadingState,setLoadingState] = useState(false);
     const [volume, setVolume] = useState(0.5);
-    const [appleDelayState, setAppleDelayState] = useState(false);
+    
     
 
     const handleSliderChange = (event, newVolume) => {
@@ -92,14 +92,6 @@ export const LofiPlayer = () => {
             setLoadingState(true);
             setPlaying(true);
             setCurrentURL(newURL);
-            alert(appleDelayState);
-            alert("loading is" + loadingState);
-            if(appleDelayState===false){
-                setAppleDelayState(false);
-                alert("Not yet triggered ?maybe? loading");
-                
-
-            }
             
         }else if (newURL === currentURL){
             setPlaying(!playing);
@@ -114,7 +106,7 @@ export const LofiPlayer = () => {
     return(
         <Styles>
             <div className="box">
-                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)} onReady={()=>{setPlaying(true)}}/>
+                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)} onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} onUnstarted={()=>{alert("Unstarted"); setPlaying(true)}}/>
                 {loadingState}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
