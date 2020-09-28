@@ -119,7 +119,7 @@ export const LofiPlayer = () => {
                 
                 />
                 <button style={{height: "50px", width: "50px"}}
-                onClick={()=>setPlaying(true)}/>
+                onClick={()=>{setPlaying(false); setPlaying(true)}}/>
                 {playing ? "Playing is TRUE" : "Playing is FALSE"}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
