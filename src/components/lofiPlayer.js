@@ -86,14 +86,15 @@ export const LofiPlayer = () => {
     };
 
     function handleNewStream(newURL) {
-       
-        if(currentURL === false){
+        
+        if (newURL === currentURL){
+            setPlaying(!playing);
+        
+            
+        }else if(currentURL === false){
             setLoadingState(true);
             setPlaying(!playing);
             setCurrentURL(newURL);
-            
-        }else if (newURL === currentURL){
-            setPlaying(!playing);
 
         }else{
             setCurrentURL(newURL);
