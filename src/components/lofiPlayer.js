@@ -112,7 +112,7 @@ export const LofiPlayer = () => {
         <Styles>
             <div className="box">
                 <ReactPlayer 
-                autoplay
+                autoPlay
                 url={currentURL} 
                 width= '500px' 
                 height='500px' 
@@ -123,7 +123,8 @@ export const LofiPlayer = () => {
                 onReady={()=>{alert("Video ready, playing!"); handleNewStream(currentURL); handleNewStream(currentURL)}} 
                 config={{
                     youtube: {
-                      onUnstarted: { handleUnstarted }
+                      playerVars: { autoPlay: 1 },
+                      onUnstarted: ()=>handleUnstarted,
                     },
                     facebook: {
                       appId: '12345'
