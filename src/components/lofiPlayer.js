@@ -81,17 +81,11 @@ export const LofiPlayer = () => {
     const [volume, setVolume] = useState(0.5);
     
 
-    const handleIOSIssue = () => {
+    const handleUnstarted = () => {
 
-        setLoadingState(false);
-        //Loadingstate comes in as true but changes to false asynchronously
-        if(loadingState===true && playing===true){
-            console.log("Loading state is true and playing, there is an issue");
-            setPlaying(false);
-            alert("In the danger loop! just set playing to false so another click should do it!");
-        }
-        console.log("Loadingstate comes in true,:" +loadingState);
-        return;
+       alert("unstarted!");
+        
+        
     }
     const handleSliderChange = (event, newVolume) => {
         setVolume(newVolume);
@@ -124,10 +118,17 @@ export const LofiPlayer = () => {
                 height='500px' 
                 playing={playing} 
                 volume={volume} 
-                onPlay={handleIOSIssue} 
+                onPlay={()=> setLoadingState(false)} 
                 onPause={()=>setLoadingState(false)} 
                 onReady={()=>{alert("Video ready, playing!"); handleNewStream(currentURL); handleNewStream(currentURL)}} 
-                onUnstarted = {()=>alert("UNSTARTED")}
+                config={{
+                    youtube: {
+                      onUnstarted: { handleUnstarted }
+                    },
+                    facebook: {
+                      appId: '12345'
+                    }
+                  }}
                 
                 />
                 <button style={{height: "50px", width: "50px"}}
