@@ -106,7 +106,22 @@ export const LofiPlayer = () => {
     return(
         <Styles>
             <div className="box">
-                <ReactPlayer url={currentURL} width= '500px' height='500px' playing={playing} volume={volume} onPlay={()=>{setLoadingState(false)}} onPause={()=>setLoadingState(false)} onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} onUnstarted={()=>{alert("Unstarted"); setPlaying(true)}}/>
+                <ReactPlayer 
+                url={currentURL} 
+                width= '500px' 
+                height='500px' 
+                playing={playing} 
+                volume={volume} 
+                onPlay={()=>{setLoadingState(false)}} 
+                onPause={()=>setLoadingState(false)} 
+                onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} 
+                onUnstarted={()=>{alert("Unstarted"); setPlaying(true)}}
+                config={{
+                    youtube: {
+                        onUnstarted: '{()=>{alert("Unstarted"); setPlaying(true)}}'
+                    },
+                    
+                  }}/>
                 {loadingState}
                 {loadingState ?  <div className="loadingMessage">Loading</div> : "Choose a station"}
                 <div className="textBreak"></div>
