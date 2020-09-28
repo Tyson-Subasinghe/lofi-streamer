@@ -79,6 +79,7 @@ export const LofiPlayer = () => {
     const [currentURL,setCurrentURL] = useState(false);
     const [loadingState,setLoadingState] = useState(false);
     const [volume, setVolume] = useState(0.5);
+    const [iosPlayState, setIosPlayState] = useState(false);
     
 
     const handleSliderChange = (event, newVolume) => {
@@ -91,6 +92,11 @@ export const LofiPlayer = () => {
             setLoadingState(true);
             setPlaying(!playing);
             setCurrentURL(newURL);
+            if(iosPlayState===false){
+                alert("Initial playing");
+                setIosPlayState(true);
+                setPlaying(true);
+            }
             
         }else if (newURL === currentURL){
             setPlaying(!playing);
@@ -99,7 +105,6 @@ export const LofiPlayer = () => {
             setCurrentURL(newURL);
             setPlaying(true);
             setLoadingState(true);
-
         }
     }
 
