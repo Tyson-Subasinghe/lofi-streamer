@@ -114,7 +114,7 @@ export const LofiPlayer = () => {
                 volume={volume} 
                 onPlay={()=>{setLoadingState(false)}} 
                 onPause={()=>setLoadingState(false)} 
-                onReady={()=>{alert("Video ready, playing!"); setPlaying(true)}} 
+                onReady={()=>{alert("Video ready, playing!"); handleNewStream(currentURL); handleNewStream(currentURL)}} 
                 onUnstarted = {()=>alert("UNSTARTED")}
                 
                 />
